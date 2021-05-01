@@ -1,0 +1,99 @@
+
+//PROCEDURE//
+PROCEDURE dot_product (v1,v2 : ARRAY_OF INTEGER, VAR ps: INTEGER)
+VAR
+ i: INTEGER :=0;
+ ps: INTEGER :=0;
+
+BEGIN
+
+    REPEAT 
+    read (v1) AND read (v2);
+    UNTIL (v1.length === v2.length)
+
+    FOR i FROM 0 TO v1.length-1 STEP 1 DO
+    ps := ps + v1[i]*v2[i]
+    END_FOR 
+END
+
+ALGORITHM orthogonaltest
+VAR
+    v1,v2: ARRAY_OF INTEGER;
+    ps: INTEGER;
+BEGIN
+// call for the procedure
+dot_product(v1,v2,ps);
+    IF (ps = 0) THEN
+        Write("v1 and v2 are orthogonal");
+    ELSE
+        Write("v1 and v2 aren't orthogonal");
+    END_IF
+END
+
+************************************************************************************************************
+
+//FUNCTION//
+FUNCTION dot_product (v1,v2 : INTEGER) : STRING
+VAR
+ i: INTEGER :=0;
+ ps: INTEGER :=0;
+BEGIN
+
+ IF (v1.length <> v2.length) THEN
+ RETURN ("Enter vectors with same size")
+ END_IF
+
+IF (v1.length === v2.length) THEN
+ FOR i FROM 0 TO v1.length-1 DO
+    ps := ps + v1[i]*v2[i]
+    END_FOR
+    END_IF
+Return (ps);
+END
+
+
+ALGORITHM orthogonaltest
+VAR
+    v1,v2: ARRAY_OF INTEGER;
+    ps: INTEGER;
+BEGIN
+// call for the function
+n:= dot_product();
+    IF (ps = 0) THEN
+        Write("v1 and v2 are orthogonal");
+    ELSE
+        Write("v1 and v2 aren't orthogonal");
+    END_IF
+END
+
+*************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
